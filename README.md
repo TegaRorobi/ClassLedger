@@ -2,6 +2,19 @@
 
 ### A Secure and Efficient Payment Tracking System for Students 🧑‍🎓
 
+**Preview**
+
+<p float="left">
+   <img src="assets/Screenshot_79.png" height="300" />
+   <img src="assets/Screenshot_88.png" height="300" />
+   <img src="assets/Screenshot_87.png" height="300" />
+</p>
+
+<p float="left">
+  <img src="assets/Screenshot_80.png" height="250" /> 
+  <img src="assets/Screenshot_81.png" height="250" />
+</p>
+
 **Introduction**
 
 Class Ledger is a purpose-built web application to solve the common problem of organizing student payments within a university department. It was created to replace a messy, time-consuming, and manual process that relied on WhatsApp DMs and manual record-keeping. The application provides a secure, private, and efficient platform for both the class head and the students. 🚀
@@ -32,3 +45,4 @@ The application is built on a robust and scalable technology stack:
     * **Django REST Framework:** Used to create the API endpoints for payment submission and status tracking.
 * **Frontend:**
     * **HTML, CSS, JavaScript:** A lightweight and performant frontend using standard web technologies. ✨
+
