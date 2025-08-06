@@ -363,8 +363,8 @@ class PaymentForm {
 
     // And ensure your submitToAPI uses the correct keys
     async submitToAPI(data) {
-        const API_ENDPOINT = 'http://127.0.0.1:8000/payments/';
-        
+        //const API_ENDPOINT = 'http://127.0.0.1:8000/payments/';
+        const API_ENDPOINT = 'https://class-ledger.onrender.com/payments/';
         const formData = new FormData();
         formData.append('name', data.name);
         formData.append('matric_number', data.matric_number);
