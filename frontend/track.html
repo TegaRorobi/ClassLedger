@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Payment - Class Ledger</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-orange': '#FF8C42',
+                        'electric-blue': '#00D4FF',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen relative transition-colors duration-300">
+    <!-- Background Image with Overlay -->
+    <div class="background-container">
+        <div class="background-overlay"></div>
+        <div class="background-gradient"></div>
+    </div>
+
+    <!-- Decorative Background Elements -->
+    <div class="decorative-elements">
+        <div class="floating-element floating-1"></div>
+        <div class="floating-element floating-2"></div>
+        <div class="floating-element floating-3"></div>
+        <div class="floating-element floating-4"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="relative z-20 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="logo-container">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <span class="nav-brand">Class Ledger</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="./index.html" class="nav-link">Submit Payment</a>
+                <!--<a href="#" class="nav-link">Contact</a>-->
+                <!--<a href="#" class="nav-link">Work with Us</a>-->
+                <!--<a href="#" class="nav-link">Careers</a>-->
+                <button id="themeToggle" class="theme-toggle" title="Toggle theme">
+                    <svg class="theme-icon sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg class="theme-icon moon-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="mobile-menu-btn">
+                <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg class="close-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="mobile-menu">
+            <div class="px-6 py-4 space-y-4">
+                <a href="./index.html" class="mobile-nav-link">Submit Payment</a>
+                <!--<a href="#" class="mobile-nav-link">Contact</a>-->
+                <!--<a href="#" class="mobile-nav-link">Work with Us</a>-->
+                <!--<a href="#" class="mobile-nav-link">Careers</a>-->
+                <button id="mobileThemeToggle" class="mobile-theme-toggle">
+                    <svg class="theme-icon sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg class="theme-icon moon-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                    <span class="ml-2">Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="relative z-10 flex items-center justify-center min-h-screen px-4 py-8">
+        <div class="w-full max-w-4xl relative">
+            <!-- Search Form (Initially Visible) -->
+            <div id="searchContainer" class="w-full max-w-md mx-auto relative">
+                <!-- Decorative Elements Around Search -->
+                <div class="form-decoration decoration-1"></div>
+                <div class="form-decoration decoration-2"></div>
+                <div class="form-decoration decoration-3"></div>
+                <div class="form-decoration decoration-4"></div>
+                
+                <!-- Extended Decorative Lines -->
+                <div class="decoration-line line-1"></div>
+                <div class="decoration-line line-2"></div>
+                <div class="decoration-line line-3"></div>
+
+                <!-- Search Card -->
+                <div class="form-card">
+                    <!-- Card Background Gradient -->
+                    <div class="card-gradient"></div>
+                    
+                    <!-- Search Header -->
+                    <div class="form-header">
+                        <div class="form-logo">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <h1 class="form-title">Track Payment</h1>
+                        <p class="form-subtitle">Enter your matriculation number to check payment status</p>
+                    </div>
+
+                    <!-- Search Form -->
+                    <form id="trackingForm" class="form-container">
+                        <!-- Matric Number Field -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <svg class="field-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path>
+                                </svg>
+                                Matriculation Number
+                            </label>
+                            <input
+                                type="text"
+                                name="matricNumber"
+                                id="matricNumber"
+                                class="form-input"
+                                placeholder="Enter your matric number"
+                                required
+                            />
+                        </div>
+
+                        <!-- Search Button -->
+                        <button type="submit" class="submit-btn">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                            Track Payments
+                        </button>
+                    </form>
+
+                    <!-- Decorative Corner Elements -->
+                    <div class="corner-decoration corner-1"></div>
+                    <div class="corner-decoration corner-2"></div>
+                </div>
+            </div>
+
+            <!-- Results Container (Initially Hidden) -->
+            <div id="resultsContainer" class="hidden w-full">
+                <!-- Back Button -->
+                <div class="mb-6 text-center">
+                    <button id="backButton" class="back-btn">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        Search Again
+                    </button>
+                </div>
+
+                <!-- Results Header -->
+                <div class="text-center mb-8">
+                    <h2 class="results-title">Payment Records</h2>
+                    <p class="results-subtitle">Found <span id="recordCount">0</span> payment record(s)</p>
+                </div>
+
+                <!-- Payment Cards Container -->
+                <div id="paymentCards" class="payment-cards-grid">
+                    <!-- Payment cards will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="hidden text-center">
+                <div class="loading-spinner">
+                    <svg class="animate-spin w-12 h-12 text-orange-500" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <p class="mt-4 text-white font-medium">Searching for your payments...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="track.js"></script>
+</body>
+</html>

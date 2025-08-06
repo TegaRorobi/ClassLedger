@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassLedger - Payment Confirmation System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-orange': '#FF8C42',
+                        'electric-blue': '#00D4FF',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen relative transition-colors duration-300">
+    <!-- Background Image with Overlay -->
+    <div class="background-container">
+        <div class="background-overlay"></div>
+        <div class="background-gradient"></div>
+    </div>
+
+    <!-- Decorative Background Elements -->
+    <div class="decorative-elements">
+        <div class="floating-element floating-1"></div>
+        <div class="floating-element floating-2"></div>
+        <div class="floating-element floating-3"></div>
+        <div class="floating-element floating-4"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="relative z-20 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="logo-container">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <span class="nav-brand">ClassLedger</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <!--<a href="#" class="nav-link">Contact</a>-->
+                <!--<a href="#" class="nav-link">Work with Us</a>-->
+                <!--<a href="#" class="nav-link">Careers</a>-->
+                <a href="./track.html" class="nav-link">Search Payments by Matric. No.</a>
+                <button id="themeToggle" class="theme-toggle" title="Toggle theme">
+                    <svg class="theme-icon sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg class="theme-icon moon-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="mobile-menu-btn">
+                <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg class="close-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="mobile-menu">
+            <div class="px-6 py-4 space-y-4">
+                <a href="./track.html" class="mobile-nav-link">Search Payments by Matric. No.</a>
+                <button id="mobileThemeToggle" class="mobile-theme-toggle">
+                    <svg class="theme-icon sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg class="theme-icon moon-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                    <span class="ml-2">Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="relative z-10 flex items-center justify-center min-h-screen px-4 py-8">
+        <div class="w-full max-w-md relative">
+            <!-- Decorative Elements Around Form -->
+            <div class="form-decoration decoration-1"></div>
+            <div class="form-decoration decoration-2"></div>
+            <div class="form-decoration decoration-3"></div>
+            <div class="form-decoration decoration-4"></div>
+            
+            <!-- Extended Decorative Lines -->
+            <div class="decoration-line line-1"></div>
+            <div class="decoration-line line-2"></div>
+            <div class="decoration-line line-3"></div>
+
+            <!-- Form Card -->
+            <div class="form-card">
+                <!-- Card Background Gradient -->
+                <div class="card-gradient"></div>
+                
+                <!-- Form Header -->
+                <div class="form-header">
+                    <div class="form-logo">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="form-title">ClassLedger</h1>
+                    <p class="form-subtitle">Submit your payment details</p>
+                </div>
+
+                <!-- Form -->
+                <form id="paymentForm" class="form-container">
+                    <!-- Name Field -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <svg class="field-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                            Full Name
+                        </label>
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            class="form-input"
+                            placeholder="Enter your full name"
+                            required
+                        />
+                    </div>
+
+                    <!-- Matriculation Number Field -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <svg class="field-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path>
+                            </svg>
+                            Matriculation Number
+                        </label>
+                        <input
+                            type="text"
+                            name="matric_number"
+                            id="matricNumber"
+                            class="form-input"
+                            placeholder="Enter your matric number"
+                            required
+                        />
+                    </div>
+
+                    <!-- Reason Field -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <svg class="field-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            </svg>
+                            Reason for Payment
+                        </label>
+                        <textarea
+                            name="reason"
+                            id="reason"
+                            rows="3"
+                            class="form-textarea"
+                            placeholder="Describe the reason for this payment..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <!--Amount Field-->
+                    <div class="form-group">
+                      <label for="amount" class="form-label">
+                          <svg class="field-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V6m0 6v-1m0 6v-1m0-2.288c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                          </svg>
+                          Amount
+                      </label>
+                      <input type="number" id="amount" name="amount" placeholder="Enter amount paid" class="form-input">
+                  </div>
+
+                    <!-- Receipt Upload Field -->
+                    <!--<div class="form-group">-->
+                    <!--    <label class="form-label">-->
+                    <!--        <svg class="field-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">-->
+                    <!--            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>-->
+                    <!--        </svg>-->
+                    <!--        Upload Receipt-->
+                    <!--    </label>-->
+                    <!--    <div class="file-upload-container">-->
+                    <!--        <input-->
+                    <!--            type="file"-->
+                    <!--            id="receipt"-->
+                    <!--            name="receipt"-->
+                    <!--            accept="image/*,.pdf"-->
+                    <!--            class="file-input"-->
+                    <!--        />-->
+                    <!--        <div class="file-upload-display">-->
+                    <!--            <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">-->
+                    <!--                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>-->
+                    <!--            </svg>-->
+                    <!--            <span id="fileText">Click to upload receipt</span>-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--</div>-->
+
+                    <div class="form-group">
+                      <label class="form-label">
+                          <svg class="field-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                          </svg>
+                          Upload Receipt
+                      </label>
+                      <div class="file-upload-container">
+                          <input
+                              type="file"
+                              id="receipt"
+                              name="receipt"
+                              accept="image/*,.pdf"
+                              class="file-input"
+                          />
+                          <div class="file-upload-display">
+                              <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                              </svg>
+                              <span id="fileText">Click to upload receipt</span>
+                          </div>
+                          <div id="file-preview-container" class="file-preview-container hidden"></div>
+                      </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn">
+                        Submit Confirmation
+                    </button>
+                </form>
+
+                <!-- Decorative Corner Elements -->
+                <div class="corner-decoration corner-1"></div>
+                <div class="corner-decoration corner-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
+
