@@ -5,14 +5,14 @@
 **Preview**
 
 <p float="left">
-   <img src="assets/Screenshot_79.png" height="300" />
-   <img src="assets/Screenshot_88.png" height="300" />
-   <img src="assets/Screenshot_87.png" height="300" />
+   <img src="assets/Screenshot_79.png" width="55%" />
+   <img src="assets/Screenshot_88.png" width="16%" />
+   <img src="assets/Screenshot_87.png" width="26%" />
 </p>
 
 <p float="left">
-  <img src="assets/Screenshot_80.png" height="250" /> 
-  <img src="assets/Screenshot_81.png" height="250" />
+  <img src="assets/Screenshot_80.png" width="49%" /> 
+  <img src="assets/Screenshot_81.png" width="49%" />
 </p>
 
 **Introduction**
@@ -45,4 +45,5 @@ The application is built on a robust and scalable technology stack:
     * **Django REST Framework:** Used to create the API endpoints for payment submission and status tracking.
 * **Frontend:**
     * **HTML, CSS, JavaScript:** A lightweight and performant frontend using standard web technologies. ✨
+
 
