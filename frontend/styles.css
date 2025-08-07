@@ -47,13 +47,20 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     transition: all 0.3s ease;
+
+    /* --- New Background Image Properties --- */
+    background-image: url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* This is the key property */
 }
 
 /* Background Styles */
 .background-container {
     position: fixed;
     inset: 0;
-    background-image: url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    /*background-image: url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');*/
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
