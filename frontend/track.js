@@ -57,8 +57,8 @@ class PaymentTracker {
 
     async fetchPayments(matricNumber) {
         // Replace with your actual API endpoint
-        //const API_ENDPOINT = `http://localhost:8000/payments/${matricNumber}/`;
-        const API_ENDPOINT = `https://class-ledger.onrender.com/payments/${matricNumber}/`;
+        const API_ENDPOINT = `http://localhost:8000/api/payments/${matricNumber}/`;
+        //const API_ENDPOINT = `https://class-ledger.onrender.com/api/payments/${matricNumber}/`;
         // For demo purposes, return mock data after a delay
         // Remove this and uncomment the actual API call below
         //await new Promise(resolve => setTimeout(resolve, 1500));
